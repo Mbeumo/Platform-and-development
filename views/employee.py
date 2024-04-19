@@ -1,9 +1,8 @@
-#import requests
+import requests
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 
-from pip._vendor import requests
 
 
 class EmployeeView:
@@ -38,7 +37,7 @@ class EmployeeView:
 
         self.lblDob = Label(self.entries_frame, text="D.O.B", font=("Calibri", 16), bg="#535c68", fg="white")
         self.lblDob.grid(row=2, column=0, padx=10, pady=10, sticky="w")
-        self.txtDob = Entry(self.entries_frame, textvariable=self.doj, font=("Calibri", 16), width=30)
+        self.txtDob = Entry(self.entries_frame, textvariable=self.dob, font=("Calibri", 16), width=30)
         self.txtDob.grid(row=2, column=1, padx=10, pady=10, sticky="w")
 
         self.lblEmail = Label(self.entries_frame, text="Email", font=("Calibri", 16), bg="#535c68", fg="white")
@@ -107,7 +106,7 @@ class EmployeeView:
         selected_row = self.tv.focus()
         data = self.tv.item(selected_row)
         global row
-        row = data["values"]
+        self.row = data["values"]
         self.name.set(row[1])
         self.age.set(row[2])
         self.dob.set(row[3])
@@ -160,14 +159,14 @@ class EmployeeView:
             messagebox.showerror("Error in Input", "Please Fill All the Details")
             return
 
-        if not row:
+        if not self.row:
             messagebox.showerror("Error", "Please select an employee to update")
             return
 
         data = {
             "name": self.txtName.get(),
             "age": self.txtAge.get(),
-            "doj": self.txtDob.get(),
+            "dob": self.txtDob.get(),
             "email": self.txtEmail.get(),
             "gender": self.comboGender.get(),
             "contact": self.txtContact.get(),

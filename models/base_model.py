@@ -24,18 +24,19 @@
 #     "Employee.db"
 # ) """
 import sqlite3
-import constants
 
+import create_db
+from constants import PATH_TO_DB
 
 
 class Database:
         def __init__(self):
-
+            create_db()
             pass
 
         def create_connection(self):
             try:
-                conn = sqlite3.connect(constants.PATH_TO_DB)
+                conn = sqlite3.connect(PATH_TO_DB)
                 return conn
             except sqlite3.Error as e:
                 print(e)
