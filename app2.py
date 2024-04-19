@@ -3,7 +3,7 @@ import os
 from flask import *
 from werkzeug.utils import secure_filename
 
-from .constants import UPLOAD_FOLDER
+from constants import UPLOAD_FOLDER
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

@@ -3,8 +3,8 @@ from flask import Blueprint, request
 from controllers.subjects import *
 from models.exceptions import ModelNotFoundError
 
-from .utils import parse_request_data
-from .responses import JSONResponse
+from utils import parse_request_data
+from responses import JSONResponse
 
 subjects_view = Blueprint('subjects', __name__, url_prefix='/subjects')
 

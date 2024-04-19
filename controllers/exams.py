@@ -1,7 +1,7 @@
 import os
 
 from models.exams import Exam
-from .files import save_file
+from files import save_file
 
 from werkzeug.utils import secure_filename
 

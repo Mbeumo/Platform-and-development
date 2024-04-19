@@ -2,9 +2,7 @@ from flask import Blueprint, request
 
 from controllers.exams import *
 from models.exceptions import ModelNotFoundError
-
-from .utils import parse_request_data
-from .responses import JSONResponse, instance_not_found_response
+from responses import JSONResponse, instance_not_found_response
 
 exams_view = Blueprint('exams', __name__, url_prefix='/exams')
 
